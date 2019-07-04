@@ -15,6 +15,13 @@
                     @endif
 
                     Uspješno ste prijavljeni
+                    <br>
+                    <br>
+                    <div class="col-md-0 offset-md-0">
+                        <a href='/roles' class="btn btn-secondary">
+                            {{ __('Odaberi ulogu') }}
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
