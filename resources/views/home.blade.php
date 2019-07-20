@@ -14,7 +14,40 @@
                         </div>
                     @endif
 
-                    Uspješno ste prijavljeni
+                    Uspješno ste prijavljeni.
+                    <br>
+                    <br>
+                    <?php
+                      $user = Auth::user();
+                      $user_id = $user->id;
+                      //print($user_id);
+                      //print("<br>");
+                      // TODO -> continue here
+                      if(DB::table('roles')->where('user_id', $user_id->pluck('role')!="")){
+                        print(" ");
+                      } else {
+                        $role = DB::table('roles')->where('user_id', $user_id)->pluck('role');
+                        if($role[0] == "1"){
+                          print("Registirani ste kao Administrator.");
+                        } else {
+                          print(" ");
+                        }
+                        if($role[0] == "2"){
+                          print("Registirani ste kao Vlasnik automehaničarske radione.");
+                        } else {
+                          print(" ");
+                        }
+                        if($role[0] == "3"){
+                          print("Registirani ste kao Korisnik usluge.");
+                        } else {
+                          print(" ");
+                        }
+                      };
+                      //print($role[0]);
+                      //print("<br>");
+
+                     ?>
+
                     <br>
                     <br>
                     <div class="col-md-0 offset-md-0">

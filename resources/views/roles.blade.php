@@ -14,15 +14,17 @@
                         </div>
                     @endif
 
-                    <form method="post">
-                      <select>
-                        <option value="administrator">Administrator</option>
-                        <option value="vlasnikAutomehanicarskeRadione">Vlasnik automehaničarske radione</option>
-                        <option value="korisnikUsluge">Korisnik usluge</option>
+                    <form method="post" action="/roles">
+                      <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                      <input type="hidden" name="user_id" value="<?php $user = Auth::user(); print($user->id); ?>">
+                      <select name="role">
+                        <option value=1>Administrator</option>
+                        <option value=2>Vlasnik automehaničarske radione</option>
+                        <option value=3>Korisnik usluge</option>
                       </select>
                       <br>
                       <br>
-                      <input type="submit" class="btn btn-primary">
+                      <input type="submit" name="submit" class="btn btn-primary">
                     </form>
                 </div>
             </div>
