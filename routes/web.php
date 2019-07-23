@@ -24,4 +24,14 @@ Route::get('/roles', function () {
     return view('roles');
 });
 
+Route::get('/items', function () {
+    return view('items');
+});
+
+Route::get('/jobs', function () {
+    return view('jobs');
+});
+
 Route::post('roles', 'RoleController@insert');
+
+Route::post('items', 'ItemController@insert');

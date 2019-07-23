@@ -71,6 +71,20 @@
                             {{ __('Odaberi ulogu') }}
                         </a>
                     </div>
+                    <br>
+
+                    <?php
+                      if($role[0] == "2"){
+                        print("<a class=\"btn btn-secondary\" href='/jobs'> Pogledaj prijavljene poslove </a>");
+                      }
+                    ?>
+                    <?php
+                      if($role[0] == "3"){
+                        print("<a class=\"btn btn-secondary\" href='/items'> Prijavi kvar na automobilu </a>");
+                      }
+                    ?>
+
+
                 </div>
             </div>
         </div>
