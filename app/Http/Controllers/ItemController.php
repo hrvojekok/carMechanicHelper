@@ -15,13 +15,14 @@ class ItemController extends Controller {
 
     public function insert (Request $request) {
 
+        $user_id = $request->input('user_id');
         $make = $request->input('make');
         $model = $request->input('model');
         $engine = $request->input('engine');
         $description = $request->input('description');
         $mechanic_id = $request->input('mechanic_id');
 
-        $data = array('make'=>$make, 'model'=>$model, 'engine'=>$engine, 'description'=>$description, 'mechanic_id'=>$mechanic_id);
+        $data = array('user_id'=>$user_id, 'make'=>$make, 'model'=>$model, 'engine'=>$engine, 'description'=>$description, 'mechanic_id'=>$mechanic_id);
 
         DB::table('items')->insert($data);
 
