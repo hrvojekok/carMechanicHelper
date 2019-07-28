@@ -44,21 +44,27 @@
                       //   }
                       // };
                       $role = DB::table('roles')->where('user_id', $user_id)->pluck('role');
-                      if($role[0] == "1"){
-                        print("Registirani ste kao Administrator.");
+                      //print($role);
+                      if($role != "[]"){
+                        if($role[0] == "1"){
+                          print("Registirani ste kao Administrator.");
+                        } else {
+                          print(" ");
+                        }
+                        if($role[0] == "2"){
+                          print("Registirani ste kao Vlasnik automehaničarske radione.");
+                        } else {
+                          print(" ");
+                        }
+                        if($role[0] == "3"){
+                          print("Registirani ste kao Korisnik usluge.");
+                        } else {
+                          print(" ");
+                        }
                       } else {
-                        print(" ");
+                        print("Još uvijek nemate dodijeljenu ulogu. Kliknite ispod da biste odabrali.");
                       }
-                      if($role[0] == "2"){
-                        print("Registirani ste kao Vlasnik automehaničarske radione.");
-                      } else {
-                        print(" ");
-                      }
-                      if($role[0] == "3"){
-                        print("Registirani ste kao Korisnik usluge.");
-                      } else {
-                        print(" ");
-                      }
+
                       //print($role[0]);
                       //print("<br>");
 
@@ -73,15 +79,29 @@
                     </div>
                     <br>
 
-                    <?php
+                     <?php
+                    if($role != "[]"){
                       if($role[0] == "2"){
                         print("<a class=\"btn btn-secondary\" href='/jobs'> Pogledaj prijavljene poslove </a>");
+                      } else {
+                        print(" ");
                       }
+                    } else {
+                      print(" ");
+                    }
+
                     ?>
                     <?php
+                    if($role != "[]"){
                       if($role[0] == "3"){
                         print("<a class=\"btn btn-secondary\" href='/items'> Prijavi kvar na automobilu </a>");
+                      } else {
+                        print(" ");
                       }
+                    } else {
+                      print(" ");
+                    }
+
                     ?>
 
 

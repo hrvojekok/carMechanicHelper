@@ -24,14 +24,22 @@
                       Odaberite automehaničara:
                       <?php
                          $roles = DB::table('roles')->where('role', 2)->pluck('user_id');
+
                          $size = sizeof($roles);
-                         //print($tasks);
+                         //print($size);
+                         //print($roles);
+                         //print("<br>");
                          if($roles != ""){
                            for($i=0; $i<$size; $i++){
+                              //$j = $roles[$i];
+                              //print($roles[$i]);
                               $name = DB::table('users')->where('id', $roles[$i])->pluck('name');
-                              print("<br><br><a type=\"button\">  ");
-                              print($name[$i]);
-                              print("  </a><br>");
+                              $nameStripped = substr($name, 2, -2);
+                              print("<br><br><input type=\"radio\" name=\"mechanic_id\" value=\"");
+                              print($roles[$i]);
+                              print("\">--");
+                              print($nameStripped);
+                              print("--</a><br>");
                            }
                          } else {
                            print("Nema prijavljenih automehaničara");

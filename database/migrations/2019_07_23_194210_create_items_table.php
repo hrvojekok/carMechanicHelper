@@ -20,6 +20,7 @@ class CreateItemsTable extends Migration
             $table->string('model');
             $table->string('engine');
             $table->string('description');
+            $table->string('mechanic_id');
             $table->timestamps();
         });
     }

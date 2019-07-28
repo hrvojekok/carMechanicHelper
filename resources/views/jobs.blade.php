@@ -15,17 +15,26 @@
                      @endif
 
                      <?php
-                       $jobs = DB::table('items')->pluck('description');
-                       $size = sizeof($jobs);
-                       //print($tasks);
-                       if($jobs != ""){
-                         for($i=0; $i<$size; $i++){
-                             print($jobs[$i]);
-                             print("<br>");
-                         }
-                       } else {
-                         print("Nemate zakazanih klijenata");
+                     $make = DB::table('items')->pluck('make');
+                     $model = DB::table('items')->pluck('model');
+                     $engine = DB::table('items')->pluck('engine');
+                     $description = DB::table('items')->pluck('description');
+                     $size = sizeof($make);
+                     //print($tasks);
+                     if($description != ""){
+                       for($i=0; $i<$size; $i++){
+                           print($make[$i]);
+                           print("  ");
+                           print($model[$i]);
+                           print("  ");
+                           print($engine[$i]);
+                           print(" ");
+                           print($description[$i]);
+                           print("<br>");
                        }
+                     } else {
+                       print("Nemate zakazanih klijenata");
+                     }
                     ?>
 
                  </div>
