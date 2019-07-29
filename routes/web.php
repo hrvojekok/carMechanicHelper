@@ -32,6 +32,10 @@ Route::get('/jobs', function () {
     return view('jobs');
 });
 
+Route::get('/failures', function () {
+    return view('failures');
+});
+
 Route::post('roles', 'RoleController@insert');
 
 Route::post('items', 'ItemController@insert');

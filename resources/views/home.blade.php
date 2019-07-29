@@ -22,7 +22,7 @@
                       $user_id = $user->id;
                       //print($user_id);
                       //print("<br>");
-                      // TODO -> continue here
+                      // TODO -> continue here -- DONE
                       // if(DB::table('roles')->where('user_id', $user_id->pluck('role')=="")){
                       //   print(" ");
                       // } else {
@@ -67,7 +67,6 @@
 
                       //print($role[0]);
                       //print("<br>");
-
                      ?>
 
                     <br>
@@ -79,31 +78,44 @@
                     </div>
                     <br>
 
-                     <?php
-                    if($role != "[]"){
-                      if($role[0] == "2"){
-                        print("<a class=\"btn btn-secondary\" href='/jobs'> Pogledaj prijavljene poslove </a>");
+                    <?php
+                      if($role != "[]"){
+                        if($role[0] == "2"){
+                          print("<a class=\"btn btn-secondary\" href='/jobs'> Pogledaj prijavljene poslove </a>");
+                        } else {
+                          print(" ");
+                        }
                       } else {
                         print(" ");
                       }
-                    } else {
-                      print(" ");
-                    }
 
                     ?>
                     <?php
-                    if($role != "[]"){
-                      if($role[0] == "3"){
-                        print("<a class=\"btn btn-secondary\" href='/items'> Prijavi kvar na automobilu </a>");
+                      if($role != "[]"){
+                        if($role[0] == "3"){
+                          print("<a class=\"btn btn-secondary\" href='/items'> Prijavi kvar na automobilu </a>");
+                        } else {
+                          print(" ");
+                        }
                       } else {
                         print(" ");
                       }
-                    } else {
-                      print(" ");
-                    }
 
                     ?>
+                    <br><br>
 
+                    <?php
+                      if($role != "[]"){
+                        if($role[0] == "3"){
+                          print("<a class=\"btn btn-secondary\" href='/failures'> Pogledaj prijavljene kvarove </a>");
+                        } else {
+                          print(" ");
+                        }
+                      } else {
+                        print(" ");
+                      }
+
+                    ?>
 
                 </div>
             </div>

@@ -5,7 +5,7 @@
      <div class="row justify-content-center">
          <div class="col-md-8">
              <div class="card">
-                 <div class="card-header">Vaši poslovi</div>
+                 <div class="card-header">Vaši prijavljeni kvarovi</div>
 
                  <div class="card-body">
                      @if (session('status'))
@@ -15,31 +15,19 @@
                      @endif
 
                      <?php
-                     //TODO continue here
+
                      $user = Auth::user();
                      //print($user->id);
                      // print("<br><br>");
                      $userID = $user->id;
-                     // print($userID);
-                     // print("<br><br>");
+                     //print($userID);
 
-                     //$descriptionReal = DB::table('items')->where('mechanic_id', $userID)->pluck('description');
-                     //print($descriptionReal);
-                     //print("<br><br>");
+                       $make = DB::table('items')->where('user_id', $userID)->pluck('make');
+                       $model = DB::table('items')->where('user_id', $userID)->pluck('model');
+                       $engine = DB::table('items')->where('user_id', $userID)->pluck('engine');
+                       $description = DB::table('items')->where('user_id', $userID)->pluck('description');
+                       $mechanic_id = DB::table('items')->where('user_id', $userID)->pluck('mechanic_id');
 
-                     // $customer = DB::table('items')->where('mechanic_id', $user)->pluck('id');
-                     // $sizeCustomer = sizeof($customer);
-                     // //print("sizeCustomer");
-                     // //print($sizeCustomer);
-                     // for($j=0; $j<$sizeCustomer; $j++){
-                     //   print($customer[$j]);
-                     // }
-
-                       $make = DB::table('items')->where('mechanic_id', $userID)->pluck('make');
-                       $model = DB::table('items')->where('mechanic_id', $userID)->pluck('model');
-                       $engine = DB::table('items')->where('mechanic_id', $userID)->pluck('engine');
-                       $description = DB::table('items')->where('mechanic_id', $userID)->pluck('description');
-                       $user_id = DB::table('items')->pluck('user_id');
 
                        $size = sizeof($make);
                        //print($tasks);
@@ -57,10 +45,17 @@
                              print("Opis kvara: ");
                              print($description[$i]);
                              print("  ||  ");
-                             print("Ime naručitelja: ");
-                             $userName = DB::table('users')->where('id', $user_id[$i])->pluck('name');
-                             $userNameSubstring = substr($userName, 2, -2);
-                             print($userNameSubstring);
+                             print("Ime automehaničara: ");
+                             //print($mechanic_id[$i]);
+                             $mechanicName = DB::table('users')->where('id', $mechanic_id[$i])->pluck('name');
+                             $mechanicNameSubstring = substr($mechanicName, 2, -2);
+                             print($mechanicNameSubstring);
+
+
+                             //print($mechanicName[$i]);
+                             // $userName = DB::table('items')->where('mechanic_id', $user_id[$i])->pluck('name');
+                             // $userNameSubstring = substr($userName, 2, -2);
+                             // print($userNameSubstring);
                              print("<br><br>");
                          }
                        } else {
