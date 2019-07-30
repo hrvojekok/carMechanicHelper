@@ -36,6 +36,14 @@ Route::get('/failures', function () {
     return view('failures');
 });
 
+Route::get('/delete', function () {
+    return view('jobs');
+});
+
+Route::get('/delete/{item_id}', 'ItemController@delete');
+
+//Route::get('/delete/{$newString}', 'ItemController@delete');
+
 Route::post('roles', 'RoleController@insert');
 
 Route::post('items', 'ItemController@insert');

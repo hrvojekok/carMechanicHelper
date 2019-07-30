@@ -29,4 +29,11 @@ class ItemController extends Controller {
         return redirect()->to('/home');
 
     }
+
+    function delete ($newString){
+
+      DB::table('items')->where('id', $newString)->delete();
+
+      return redirect()->to('/jobs');
+    }
 }

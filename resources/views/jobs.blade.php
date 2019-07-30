@@ -14,8 +14,11 @@
                          </div>
                      @endif
 
+                     <form method="get" action="/delete">
+                       <!-- <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"> -->
+                       <input type="hidden" name="_method" value="DELETE">
                      <?php
-                     //TODO continue here
+                     //TODO continue here -- DONE
                      $user = Auth::user();
                      //print($user->id);
                      // print("<br><br>");
@@ -40,6 +43,8 @@
                        $engine = DB::table('items')->where('mechanic_id', $userID)->pluck('engine');
                        $description = DB::table('items')->where('mechanic_id', $userID)->pluck('description');
                        $user_id = DB::table('items')->pluck('user_id');
+                       $item_id = DB::table('items')->where('mechanic_id', $userID)->pluck('id');
+
 
                        $size = sizeof($make);
                        //print($tasks);
@@ -58,16 +63,29 @@
                              print($description[$i]);
                              print("  ||  ");
                              print("Ime naručitelja: ");
+                             $newString = $user_id[$i];
                              $userName = DB::table('users')->where('id', $user_id[$i])->pluck('name');
                              $userNameSubstring = substr($userName, 2, -2);
                              print($userNameSubstring);
+                             print("  ||  ");
+                             print("Označi kao dovršeno: ");
+                             print($item_id[$i]);
+
+                             print("<a href=\"/delete/{{ $newString }}\" > <button>Delete</button> </a>");
+                             //print("<a href=\"{{URL::to('/delete/'.$newString)}}\" > <button>Delete</button> </a>");
+
+                             // print("<input type=\"radio\" name=\"delete_id\" value=\"");
+                             // print($item_id[$i]);
+                             //print("\">");
                              print("<br><br>");
                          }
+                         //print("<button>Delete</button> <a href=\"/delete/{{$item_id}}\" >");
+                         //print("<input type=\"submit\" name=\"submit\" class=\"btn btn-secondary\">");
                        } else {
                          print("Nemate zakazanih klijenata");
                        }
                     ?>
-
+                    <!-- </form> -->
                  </div>
              </div>
          </div>
