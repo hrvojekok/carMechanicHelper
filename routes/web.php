@@ -40,6 +40,11 @@ Route::get('/delete', function () {
     return view('jobs');
 });
 
+Route::get('/test', 'ItemController@item');
+
+Route::delete('/test/{item}', 'ItemController@destroy');
+
+
 Route::get('/delete/{item_id}', 'ItemController@delete');
 
 //Route::get('/delete/{$newString}', 'ItemController@delete');

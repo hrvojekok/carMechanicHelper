@@ -14,9 +14,11 @@
                          </div>
                      @endif
 
-                     <form method="get" action="/delete">
+                     <!-- <form method="post" action="/delete">
+                       {{ method_field('DELETE') }}
+                       {{ csrf_field() }} -->
                        <!-- <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"> -->
-                       <input type="hidden" name="_method" value="DELETE">
+                       <!-- <input typ e="hidden" name="_method" value="DELETE"> -->
                      <?php
                      //TODO continue here -- DONE
                      $user = Auth::user();
@@ -86,6 +88,12 @@
                        }
                     ?>
                     <!-- </form> -->
+
+                    <form method="post" action="/delete/{{ $newString->id }}">
+                      {{ method_field('DELETE') }}
+                      {{ csrf_field() }}
+                      <a href="/delete/{{ $newString }}" > <button>Delete</button> </a>
+                    </form>
                  </div>
              </div>
          </div>

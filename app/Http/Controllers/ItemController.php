@@ -30,10 +30,33 @@ class ItemController extends Controller {
 
     }
 
-    function delete ($newString){
+    public function delete (){
 
-      DB::table('items')->where('id', $newString)->delete();
+      dd('hello');
+      //DB::table('items')->where('id', $newString)->delete();
 
-      return redirect()->to('/jobs');
+      //return redirect()->to('/jobs');
+    }
+
+    public function item(){
+
+      $items = \App\Item::all();
+
+      //return $items;
+
+      return view('test', ['items' => $items]);
+    }
+
+
+    public function destroy($id){
+
+      \App\Item::find($id)->delete();
+
+
+      return redirect()->to('/home');
+      // $items = Item::find($id);
+      //
+      // return view('item', ['items' => $items]);
+
     }
 }
