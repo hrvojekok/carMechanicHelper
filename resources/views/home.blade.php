@@ -81,7 +81,7 @@
                     <?php
                       if($role != "[]"){
                         if($role[0] == "2"){
-                          print("<a class=\"btn btn-secondary\" href='/jobs'> Pogledaj prijavljene poslove </a>");
+                          print("<a class=\"btn btn-secondary\" href='/test'> Pogledaj prijavljene poslove </a>");
                         } else {
                           print(" ");
                         }

@@ -43,8 +43,9 @@ class ItemController extends Controller {
       $items = \App\Item::all();
 
       //return $items;
-
       return view('test', ['items' => $items]);
+
+      //return view('test', ['items' => $items]);
     }
 
 

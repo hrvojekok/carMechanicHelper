@@ -16,19 +16,29 @@
 
                     Uspješno ste prijavljeni.
                     <br><br>
-                  @foreach ($items as $item)
-                    <li>{{ $item->description }}</li>
-                    <li>{{ $item->make }}</li>
-                    <form method="post" action="test/{{ $item->id }}">
-                      {{ method_field('DELETE') }}
-                      {{ csrf_field() }}
 
-                      <button type="submit"> DELETE </button>
+                    <?php
+                      $user = Auth::user();
+                      $userID = $user->id;
+                    ?>
 
-                    </form>
-                  @endforeach
+                    @foreach ($items as $item)
+                      <li>{{ $item->make}}</li>
+                      <li>{{ $item->model }}</li>
+                      <li>{{ $item->engine }}</li>
+                      <li>{{ $item->description }}</li>
+                      <li>{{ $item->mechanic_id }}</li>
+                      <form method="post" action="test/{{ $item->id }}">
+                        {{ method_field('DELETE') }}
+                        {{ csrf_field() }}
 
-                
+                        <button type="submit"> Označi kao dovršeno </button>
+
+                      </form>
+                      <br><br>
+                    @endforeach
+
+
                 </div>
             </div>
         </div>

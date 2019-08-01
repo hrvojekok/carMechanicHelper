@@ -42,6 +42,7 @@ Route::get('/delete', function () {
 
 Route::get('/test', 'ItemController@item');
 
+
 Route::delete('/test/{item}', 'ItemController@destroy');
 
 
