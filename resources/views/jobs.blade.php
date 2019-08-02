@@ -31,6 +31,7 @@
                       $item_id = DB::table('items')->where('mechanic_id', $userID)->pluck('id');
 
 
+
                       $size = sizeof($make);
                       //print($tasks);
                       if($make != ""){
@@ -72,6 +73,7 @@
                             //print("\">");
                             print("<br><br>");
                         }
+                        
                         //print("<button>Delete</button> <a href=\"/delete/{{$item_id}}\" >");
                         //print("<input type=\"submit\" name=\"submit\" class=\"btn btn-secondary\">");
                       } else {

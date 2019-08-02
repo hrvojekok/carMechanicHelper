@@ -27,7 +27,8 @@
                        $engine = DB::table('items')->where('user_id', $userID)->pluck('engine');
                        $description = DB::table('items')->where('user_id', $userID)->pluck('description');
                        $mechanic_id = DB::table('items')->where('user_id', $userID)->pluck('mechanic_id');
-
+                       $item_id = DB::table('items')->where('user_id', $userID)->pluck('id');
+                       //print($item_id);
 
                        $size = sizeof($make);
                        //print($tasks);
@@ -50,7 +51,15 @@
                              $mechanicName = DB::table('users')->where('id', $mechanic_id[$i])->pluck('name');
                              $mechanicNameSubstring = substr($mechanicName, 2, -2);
                              print($mechanicNameSubstring);
+                             
+                             print("<form method=\"post\" action=\"jobs/$item_id[$i]\">");
+                             print("<input type=\"hidden\" name=\"_method\" value=\"DELETE\">");
+                             print("<input type=\"hidden\" name=\"_token\" value=\"");
+                             print(csrf_token());
+                             print("\">");
+                             print("<button type=\"submit\"> Otkaži naručeni popravak </button>");
 
+                             print("</form>");
 
                              //print($mechanicName[$i]);
                              // $userName = DB::table('items')->where('mechanic_id', $user_id[$i])->pluck('name');
@@ -59,7 +68,7 @@
                              print("<br><br>");
                          }
                        } else {
-                         print("Nemate zakazanih klijenata");
+                         print("Nemate prijavljenih kvarova");
                        }
                     ?>
 
