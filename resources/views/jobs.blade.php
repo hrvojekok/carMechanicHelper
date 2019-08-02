@@ -27,7 +27,7 @@
                       $model = DB::table('items')->where('mechanic_id', $userID)->pluck('model');
                       $engine = DB::table('items')->where('mechanic_id', $userID)->pluck('engine');
                       $description = DB::table('items')->where('mechanic_id', $userID)->pluck('description');
-                      $user_id = DB::table('items')->pluck('user_id');
+                      $user_id = DB::table('items')->where('mechanic_id', $userID)->pluck('user_id');
                       $item_id = DB::table('items')->where('mechanic_id', $userID)->pluck('id');
 
 
@@ -50,10 +50,11 @@
                             print("  ||  ");
                             print("Ime naručitelja: ");
                             $newString = $user_id[$i];
+                            //print($user_id[$i]);
                             $userName = DB::table('users')->where('id', $user_id[$i])->pluck('name');
                             $userNameSubstring = substr($userName, 2, -2);
                             print($userNameSubstring);
-                            print("  ||  ");
+                            //print("  ||  ");
                             //print("Označi kao dovršeno: ");
                             //print($item_id[$i]);
 
@@ -73,7 +74,7 @@
                             //print("\">");
                             print("<br><br>");
                         }
-                        
+
                         //print("<button>Delete</button> <a href=\"/delete/{{$item_id}}\" >");
                         //print("<input type=\"submit\" name=\"submit\" class=\"btn btn-secondary\">");
                       } else {
