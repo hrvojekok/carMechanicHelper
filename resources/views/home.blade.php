@@ -63,20 +63,23 @@
                         }
                       } else {
                         print("Još uvijek nemate dodijeljenu ulogu. Kliknite ispod da biste odabrali.");
+
+                        print("<br><br>");
+                        print("<div class=\"col-md-0 offset-md-0\">");
+                        print("<a href='/roles' class=\"btn btn-secondary\">");
+                        print("Odaberi ulogu");
+                        print("</a>");
+                        print("</div>");
+
+
                       }
 
                       //print($role[0]);
                       //print("<br>");
                      ?>
 
-                    <br>
-                    <br>
-                    <div class="col-md-0 offset-md-0">
-                        <a href='/roles' class="btn btn-secondary">
-                            {{ __('Odaberi ulogu') }}
-                        </a>
-                    </div>
-                    <br>
+                     <br>
+                     <br>
 
                     <?php
                       if($role != "[]"){
