@@ -28,9 +28,6 @@ Route::get('/items', function () {
     return view('items');
 });
 
-Route::get('/jobs', function () {
-    return view('jobs');
-});
 
 Route::get('/failures', function () {
     return view('failures');
@@ -40,10 +37,10 @@ Route::get('/delete', function () {
     return view('jobs');
 });
 
-Route::get('/test', 'ItemController@item');
+Route::get('/jobs', 'ItemController@item');
 
 
-Route::delete('/test/{item}', 'ItemController@destroy');
+Route::delete('/jobs/{item}', 'ItemController@destroy');
 
 
 Route::get('/delete/{item_id}', 'ItemController@delete');
