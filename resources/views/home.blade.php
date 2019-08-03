@@ -75,11 +75,8 @@
                       }
 
                       //print($role[0]);
-                      //print("<br>");
+                      print("<br><br>");
                      ?>
-
-                     <br>
-                     <br>
 
                     <?php
                       if($role != "[]"){
@@ -119,6 +116,18 @@
                       }
 
                     ?>
+
+                    <?php
+
+                    if($role != "[]"){
+                      if($role[0] == "1"){
+                        print("<a class=\"btn btn-secondary\" href='/admin'> Pogledaj popis automehaničarskih radiona, korisnika usluga i zakazanih poslova  </a>");
+                      } else {
+                        print(" ");
+                      }
+                    }
+
+                     ?>
 
                 </div>
             </div>

@@ -37,6 +37,10 @@ Route::get('/jobs', function () {
     return view('jobs');
 });
 
+Route::get('/admin', function () {
+    return view('admin');
+});
+
 //Route::get('/jobs', 'ItemController@item');
 
 
