@@ -78,8 +78,12 @@
                         //print("<button>Delete</button> <a href=\"/delete/{{$item_id}}\" >");
                         //print("<input type=\"submit\" name=\"submit\" class=\"btn btn-secondary\">");
                       } else {
-                        print("Nemate zakazanih klijenata");
+                        //print("Nemate zakazanih klijenata");
                       }
+                      if($make == "[]"){
+                        print("Nemate zakazanih poslova");
+                      }
+
                     ?>
                     <!-- @foreach ($items as $item)
                       <li>{{ $item->where('mechanic_id', $userID)->pluck('make')}}</li>

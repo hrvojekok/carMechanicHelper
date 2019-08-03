@@ -51,7 +51,7 @@
                              $mechanicName = DB::table('users')->where('id', $mechanic_id[$i])->pluck('name');
                              $mechanicNameSubstring = substr($mechanicName, 2, -2);
                              print($mechanicNameSubstring);
-                             
+
                              print("<form method=\"post\" action=\"jobs/$item_id[$i]\">");
                              print("<input type=\"hidden\" name=\"_method\" value=\"DELETE\">");
                              print("<input type=\"hidden\" name=\"_token\" value=\"");
@@ -68,6 +68,9 @@
                              print("<br><br>");
                          }
                        } else {
+                         //print("Nemate prijavljenih kvarova");
+                       }
+                       if($make == "[]"){
                          print("Nemate prijavljenih kvarova");
                        }
                     ?>
