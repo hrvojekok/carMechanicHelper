@@ -31,27 +31,6 @@ class ItemController extends Controller {
     }
 
 
-
-
-    public function delete (){
-
-      dd('hello');
-      //DB::table('items')->where('id', $newString)->delete();
-
-      //return redirect()->to('/jobs');
-    }
-
-    public function item(){
-
-      $items = \App\Item::all();
-
-      //return $items;
-      return view('jobs', ['items' => $items]);
-
-      //return view('test', ['items' => $items]);
-    }
-
-
     public function destroy($id){
 
       \App\Item::find($id)->delete();

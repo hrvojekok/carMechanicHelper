@@ -33,19 +33,15 @@ Route::get('/failures', function () {
     return view('failures');
 });
 
-Route::get('/delete', function () {
+Route::get('/jobs', function () {
     return view('jobs');
 });
 
-Route::get('/jobs', 'ItemController@item');
+//Route::get('/jobs', 'ItemController@item');
 
 
+//brise item sa brojem {item}, poziva funkciju destroy iz item controllera
 Route::delete('/jobs/{item}', 'ItemController@destroy');
-
-
-Route::get('/delete/{item_id}', 'ItemController@delete');
-
-//Route::get('/delete/{$newString}', 'ItemController@delete');
 
 Route::post('roles', 'RoleController@insert');
 

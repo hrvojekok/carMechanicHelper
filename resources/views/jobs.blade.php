@@ -85,22 +85,7 @@
                       }
 
                     ?>
-                    <!-- @foreach ($items as $item)
-                      <li>{{ $item->where('mechanic_id', $userID)->pluck('make')}}</li>
 
-                      <li>{{ $item->where('mechanic_id', $userID)->pluck('model') }}</li>
-                      <li>{{ $item->where('mechanic_id', $userID)->pluck('engine') }}</li>
-                      <li>{{ $item->where('mechanic_id', $userID)->pluck('description') }}</li>
-                      <li>{{ $item->where('mechanic_id', $userID)->pluck('mechanic_id') }}</li>
-                      <form method="post" action="test/{{ $item->id }}">
-                        {{ method_field('DELETE') }}
-                        {{ csrf_field() }}
-
-                        <button type="submit"> Označi kao dovršeno </button>
-
-                      </form>
-                      <br><br>
-                    @endforeach -->
 
 
                 </div>
