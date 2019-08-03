@@ -72,7 +72,10 @@
                        }
                        if($make == "[]"){
                          print("Nemate prijavljenih kvarova");
+                       } else {
+                         print("");
                        }
+
                     ?>
 
                  </div>
