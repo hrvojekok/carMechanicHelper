@@ -1,16 +1,7 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
+//početna stranica --Automehaničarske radionice--
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,35 +9,34 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//home page -- nakon login-a
 Route::get('/home', 'HomeController@index')->name('home');
 
+//uloge
 Route::get('/roles', function () {
     return view('roles');
 });
+Route::post('roles', 'RoleController@insert');
 
+//narudžba popravka -- korisnik usluge
 Route::get('/items', function () {
     return view('items');
 });
+Route::post('items', 'ItemController@insert');
 
-
+//naručeni popravci -- korisnik usluge
 Route::get('/failures', function () {
     return view('failures');
 });
 
+//dogovoreni poslovi -- vlasnik automehaničarske radionice
 Route::get('/jobs', function () {
     return view('jobs');
 });
+//brise item(narudžbu) sa brojem {item}, poziva funkciju destroy iz item controllera
+Route::delete('/jobs/{item}', 'ItemController@destroy');
 
+//popis svih narudžbi sa imenima automehaničara i imenima osobe koja je naručila popravak
 Route::get('/admin', function () {
     return view('admin');
 });
-
-//Route::get('/jobs', 'ItemController@item');
-
-
-//brise item sa brojem {item}, poziva funkciju destroy iz item controllera
-Route::delete('/jobs/{item}', 'ItemController@destroy');
-
-Route::post('roles', 'RoleController@insert');
-
-Route::post('items', 'ItemController@insert');
