@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dobro došli</div>
+                <div class="card-header">Popis dogovorenih poslova</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Uspješno ste prijavljeni.
+
                     <br><br>
 
                     <?php
